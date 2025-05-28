@@ -14,13 +14,14 @@ import personajes.Personaje;
 @ToString
 public abstract class Bestias extends Personaje {
 	
+	public Bestias(String nombre, int puntosDeVida, int armadura) {
+	    super(nombre, puntosDeVida, armadura);
+	} 
 	
 	public int tirarDado() {
 	 return (int) (Math.random() *91);
 	}
 	
-	public Bestias(String nombre, int puntosDeVida, int armadura) {
-		
-	}
+	
 
 }

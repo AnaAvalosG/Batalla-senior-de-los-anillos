@@ -14,5 +14,8 @@ public abstract class Personaje {
 	private int armadura;
 	
 	
-	
+	public int tirarDado() {
+        // Por defecto no hace nada
+        return 0;
+    }
 }
