@@ -1,4 +1,13 @@
-personajes\Bestias.class
-personajes\Heroes.class
-batallaElSeniorDeLosAnillos\CampoBatalla.class
+personajes\bestias\Orco.class
+personajes\heroes\Hobbits.class
+Main\CampoBatalla.class
+batalla\Batalla.class
+personajes\bestias\Trasgos.class
+personajes\heroes\Heroes.class
 personajes\Personaje.class
+batalla\Combate.class
+personajes\heroes\Elfo.class
+batalla\JuegoElSenorDeLosAnillos.class
+batalla\SeniorAnillos.class
+personajes\bestias\Bestias.class
+personajes\heroes\Humanos.class
