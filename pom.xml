@@ -41,7 +41,7 @@
     <artifactId>exec-maven-plugin</artifactId>
     <version>3.5.1</version>
     <configuration>
-        <mainClass>com.vista.CampoBatalla</mainClass>
+        <mainClass>com.vista.MainCampoBatalla</mainClass>
     </configuration>
 </plugin>
             

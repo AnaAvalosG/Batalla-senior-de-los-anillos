@@ -11,6 +11,7 @@ import com.modelo.personajes.heroes.Elfo;
 import com.modelo.personajes.heroes.Heroes;
 import com.modelo.personajes.heroes.Hobbits;
 import com.modelo.personajes.heroes.Humanos;
+import com.utilidades.SalidaBatalla;
 
 
 	public class JuegoElSenorDeLosAnillos {
@@ -40,10 +41,16 @@ import com.modelo.personajes.heroes.Humanos;
 	        ejercitoBestias.add(new Trasgos("Mauhúr", 100, 50));
 	    }
 
-	    public void iniciarBatalla() {
-	        Batalla batalla = new Batalla(ejercitoHeroes, ejercitoBestias);
+	    public void iniciarBatalla(SalidaBatalla salida) {
+	        Batalla batalla = new Batalla(ejercitoHeroes, ejercitoBestias, salida);
 	        batalla.iniciar();
 	    }
-	}
+	
+	 
+	       
+	
+
+	        
+	        }
 
 
