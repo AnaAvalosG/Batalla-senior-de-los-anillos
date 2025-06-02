@@ -1,7 +1,5 @@
 package com.modelo.personajes.heroes;
 
-import com.modelo.personajes.Personaje;
-import com.modelo.personajes.bestias.Orco;
 
 public class Elfo extends Heroes {
 

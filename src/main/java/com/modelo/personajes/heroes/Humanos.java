@@ -1,7 +1,6 @@
 package com.modelo.personajes.heroes;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 

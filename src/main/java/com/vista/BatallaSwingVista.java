@@ -1,6 +1,6 @@
 package com.vista;
 
-import com.controlador.JuegoElSenorDeLosAnillos;
+
 import com.modelo.batalla.Batalla;
 import com.modelo.personajes.bestias.Bestias;
 import com.modelo.personajes.bestias.Orco;
@@ -9,17 +9,17 @@ import com.modelo.personajes.heroes.Elfo;
 import com.modelo.personajes.heroes.Heroes;
 import com.modelo.personajes.heroes.Hobbits;
 import com.modelo.personajes.heroes.Humanos;
-import com.utilidades.SalidaBatalla;
+
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.PrintStream;
 import java.util.List;
 import java.util.ArrayList;
 
 public class BatallaSwingVista extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+
 	
 	
 	private DefaultListModel<String> modeloHeroes;
@@ -93,10 +93,33 @@ public class BatallaSwingVista extends JFrame {
         panel.add(btnAgregarHeroe);
 
         btnAgregarHeroe.addActionListener(e -> {
-            String nombre = nombreHeroe.getText();
+            String nombre = nombreHeroe.getText().trim();
+            String vidaTexto = vidaHeroe.getText().trim();
+            String armaduraTexto = armaduraHeroe.getText().trim();
             String tipo = (String) tipoHeroe.getSelectedItem();
-            int vida = Integer.parseInt(vidaHeroe.getText());
-            int armadura = Integer.parseInt(armaduraHeroe.getText());
+
+            if (nombre.isEmpty() || vidaTexto.isEmpty() || armaduraTexto.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos del héroe.", "Campos incompletos", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            int vida, armadura;
+            try {
+                vida = Integer.parseInt(vidaTexto);
+                armadura = Integer.parseInt(armaduraTexto);
+
+                if (vida <= 0 || armadura < 0) {
+                    JOptionPane.showMessageDialog(this,
+                        "La vida debe ser mayor a 0 y la armadura no puede ser negativa.",
+                        "Valores inválidos", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this,
+                    "Vida y armadura deben ser números enteros válidos.",
+                    "Error de formato", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
             Heroes nuevoHeroe = switch (tipo) {
                 case "Humano" -> new Humanos(nombre, vida, armadura);
@@ -114,7 +137,6 @@ public class BatallaSwingVista extends JFrame {
             vidaHeroe.setText("");
             armaduraHeroe.setText("");
         });
-
 
         return panel;
     }
@@ -141,11 +163,33 @@ public class BatallaSwingVista extends JFrame {
         panel.add(btnAgregarBestia);
 
         btnAgregarBestia.addActionListener(e -> {
-            String nombre = nombreBestia.getText();
+            String nombre = nombreBestia.getText().trim();
+            String vidaTexto = vidaBestia.getText().trim();
+            String armaduraTexto = armaduraBestia.getText().trim();
             String tipo = (String) tipoBestia.getSelectedItem();
-            int vida = Integer.parseInt(vidaBestia.getText());
-            int armadura = Integer.parseInt(armaduraBestia.getText());
 
+            if (nombre.isEmpty() || vidaTexto.isEmpty() || armaduraTexto.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor, completa todos los campos de la bestia.", "Campos incompletos", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            int vida, armadura;
+            try {
+                vida = Integer.parseInt(vidaTexto);
+                armadura = Integer.parseInt(armaduraTexto);
+
+                if (vida <= 0 || armadura < 0) {
+                    JOptionPane.showMessageDialog(this,
+                        "La vida debe ser mayor a 0 y la armadura no puede ser negativa.",
+                        "Valores inválidos", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this,
+                    "Vida y armadura deben ser números enteros válidos.",
+                    "Error de formato", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             Bestias nuevaBestia = switch (tipo) {
                 case "Orco" -> new Orco(nombre, vida, armadura);
                 case "Trasgo" -> new Trasgos(nombre, vida, armadura);
@@ -161,6 +205,7 @@ public class BatallaSwingVista extends JFrame {
             vidaBestia.setText("");
             armaduraBestia.setText("");
         });
+
 
 
 
